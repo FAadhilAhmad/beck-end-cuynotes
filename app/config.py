@@ -14,12 +14,12 @@ def mysql_uri() -> str:
 
     return(f"mysql+pymysql://{user}:{password}@{host}:{port}/{name}")
 
-class config:
+class Config:
     SQLALCHEMY_DATABASE_URI = mysql_uri()
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 def db_connection():
-    uri = config.SQLALCHEMY_DATABASE_URI
+    uri = Config.SQLALCHEMY_DATABASE_URI
 
     try:
         engine = create_engine(uri)
